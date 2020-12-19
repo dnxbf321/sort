@@ -18,13 +18,13 @@ function part(arr, left, right) {
     if (arr[left] <= target) {
       left += 1
     } else if (arr[left] > target) {
-      arr[right] = arr[left]
-      right -= 1
-      arr[left] = arr[right]
+      arr[right] = arr[left] // arr[left] 复制到 right 位置
+      right -= 1 // 给下次放右侧的值腾位子，避免 right - 1 位置的值丢失
+      arr[left] = arr[right] // 将 right - 1 位置的值挪到 left 位置
     }
   }
   arr[left] = target
-  return left
+  return left // 分割位置
 }
 
 function quickSort(arr, left, right) {
